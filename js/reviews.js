@@ -110,7 +110,7 @@ const app = express();
 const PORT = 3000;
 
 // Подключение к MongoDB
-mongoose.connect('mongodb://localhost/reviews', { useNewUrlParser: true, useUnifiedTopology: true });
+mongoose.connect('https://sokolovwebs.github.io/Profi-Groomer/api/reviews', { useNewUrlParser: true, useUnifiedTopology: true });
 
 // Определение схемы для отзывов
 const reviewSchema = new mongoose.Schema({
