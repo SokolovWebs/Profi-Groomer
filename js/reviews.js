@@ -48,7 +48,7 @@ let userName = '';
 
 // Функция для загрузки отзывов с сервера
 async function loadReviews() {
-    const response = await fetch('http://localhost:3000/api/reviews'); // измените на ваш адрес сервера
+    const response = await fetch('https://sokolovwebs.github.io/Profi-Groomer/'); // измените на ваш адрес сервера
     const storedReviews = await response.json();
     const reviewsDiv = document.getElementById('reviews');
 
