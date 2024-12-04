@@ -1,0 +1,555 @@
+
+
+
+
+ /* Стили для модального окна */
+ .modal {
+  display: none; /* Скрыто по умолчанию */
+  position: fixed; /* Окно фиксировано по отношению к экрану */
+  z-index: 1000; /* На переднем плане */
+  left: 0;
+  top: 0;
+  width: 100%; /* Полная ширина */
+  height: 100%; /* Полная высота */
+  overflow: auto; /* Если слишком много контента - прокрутка */
+  background-color: rgba(0, 0, 0, 0.5); /* Полупрозрачный фон */
+}
+
+.modal-content {
+  background-color: #fefefe;
+  margin: 15% auto; /* 15% сверху и центрирование по горизонтали */
+  padding: 20px;
+  border: 1px solid #888;
+  width: 80%; /* Ширина окна */
+  max-width: 600px; /* Максимальная ширина окна */
+}
+
+.close {
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.modal p{
+  color: black;
+  text-align: center;
+}
+
+.modal p span{
+  color: #ffd900;
+  text-decoration: underline;
+}
+
+
+
+
+/* Начало WEB страницы */
+
+
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html{
+  height: 100%;
+}
+
+body{
+  background-color: #602824;
+  background-image: url(../img/BG_pattern.png);
+  background-repeat: repeat;
+}
+
+section{
+  display: block;
+}
+
+
+/* Header */
+
+.wrapper {
+    height: 100%;
+    width: 100%;
+  }
+  
+  .wrapper{
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
+    background-color: #eee;
+  }
+  
+  
+  .header{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    min-height: 100px;
+    padding: 0 40px;
+
+    background-color: #602824;
+    border-bottom: #FFE2B2 solid;
+  
+  }
+  
+  .logo{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    border: 1px solid #FFE2B2;
+
+    padding: 5px 10px;
+    color: #FFE2B2;
+
+    margin-left: 3%;
+
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+  }
+  
+
+
+
+/* Кнопка */
+
+.btn{
+  display: block;
+  text-decoration: none;
+  color: #9f322a;
+  background-color: #FFE2B2;
+  border-radius: 24px;
+  text-align: center;
+
+  font-size: 14px;
+  font-weight: 700;
+  font-family: "Open Sans", sans-serif;
+  transition: color linear 0.2s;
+
+  padding: 7px 14px;
+
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+.btn:active{
+  scale: 1.1;
+  transition: 0ms;
+}
+
+.btn:hover{
+  scale: 1.1;
+  transition: 0.2s;
+}
+
+
+/* Стили для JS */
+
+.scale{
+  scale: 1.5;
+  transition: 1s;
+}
+
+.none, .none2, .none3, .none4, .none5, .none6, .none7{
+  display: none;
+}
+
+
+
+
+/* Универсальные классы, задающиеся для многих элементов */
+
+.title{
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: #FFE2B2;
+  font-size: 18px;
+  font-family: "Oranienbaum";
+  letter-spacing: 3px;
+
+  padding-top: 15px;
+  padding-bottom: 15px;
+
+  border-top: #FFE2B2 solid;
+
+  display: flex;
+}
+
+
+h2{
+  margin-right:  auto;
+  margin-left: auto;
+}
+
+.arrow, .arrow2, .arrow3, .arrow4, .arrow5, .arrow6, .arrow7{
+  width: 30px;
+  height: auto;
+
+  margin-right: 10%;
+
+  cursor: pointer;
+}
+
+
+@keyframes colorChang {
+  0% {
+    background-color: #602824;
+}
+
+50% {
+  background-color: #8d302a;
+}
+
+100% {
+    background-color: #742d28;
+}
+}
+
+
+.arrow img, .arrow2 img, .arrow3 img, .arrow4 img, .arrow5 img, .arrow6 img, .arrow7 img{
+  scale: 1.6;
+  border-radius: 20px;
+  animation: colorChang 2s infinite alternate;
+
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+.arrow img:hover, .arrow2 img:hover, .arrow3 img:hover, .arrow4 img:hover, .arrow5 img:hover, .arrow6 img:hover, .arrow7 img:hover{
+  scale: 1.8;
+  transition: 0.1s;
+}
+
+
+.arrow img:active, .arrow2 img:active, .arrow3 img:active, .arrow4 img:active, .arrow5 img:active, .arrow6 img:active, .arrow7 img:active {
+  scale: 2;
+}
+
+
+.service .title{
+  border: none;
+}
+
+.under_title{
+  color: #FFE2B2;
+  font-size: 20px;
+  text-align: center;
+
+  padding-top: 15px;
+  margin-bottom: 15px;
+  border-top: #FFE2B2 dashed;
+}
+
+p{
+  color: ivory;
+  font-family: "Kurale";
+
+  margin-bottom: 3px;
+}
+
+
+.text{
+  margin-left: 20px;
+  margin-right: 20px;
+  margin-bottom: 20px;
+}
+
+
+
+
+/* Услуги */
+
+  .service .title h2{
+    display: inline-block;
+  }
+  
+
+
+
+/* Блок Контакты */
+
+.first7{
+  border-bottom: #FFE2B2 solid;
+}
+
+span.tg{
+  color: #3DBDFF;
+  text-decoration: underline #3DBDFF;
+}
+
+span.wts{
+  color: #92F172;
+  text-decoration: underline #92F172;
+}
+
+span.wts:hover, span.wts:active{
+  color: #c5feb3;
+  text-decoration: underline #c5feb3;
+}
+
+span.tg:hover{
+  color: #9ddeff;
+  text-decoration: underline #9ddeff;
+}
+
+
+.first7 a{
+  text-decoration: none ;
+}
+
+.QRs{
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+.QR{
+  margin-bottom: 20px;
+}
+
+.QR:hover{
+  scale: 1.1;
+  transition: 0.2s ease;
+}
+
+.QR img{
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.text_contacts{
+  text-align: center;
+  margin-top: 10px;
+}
+
+.contacts .title{
+  margin-bottom: 0px;
+}
+
+@keyframes colorChange {
+  0% {
+    color: #FFE2B2; /* Вернемся к цвету Telegram */
+}
+  35% {
+      color: #9fdfff; /* Цвет эмблемы Telegram */
+  }
+  70% {
+      color: #a4ffc5; /* Цвет эмблемы WhatsApp */
+  }
+  90% {
+      color: #FFE2B2; /* Вернемся к цвету Telegram */
+  }
+}
+
+.animation {
+  animation: colorChange 4s infinite; /* Длительность анимации 3 секунды, бесконечно */
+}
+
+
+/* Блок Примеры Работ */
+
+.pictures{
+  display: grid;
+  width: 100%;
+  grid-template-columns: repeat(auto-fill, 120px);
+  justify-content: center;
+  justify-items: center;
+  margin: 0 auto;
+  column-gap: 10px;
+  row-gap: 10px;
+}
+
+
+/* Блок Обо Мне */
+
+.text_about a{
+  color: #FFE2B2;
+  text-decoration: none;
+}
+
+/* Отзывы */
+
+.title h2.rew{
+  font-size: 23px;
+}
+
+section.REVIEWS{
+  border-bottom: #FFE2B2 solid;
+}
+
+
+
+/* Footer */
+
+footer{
+  display: block;
+  background-color: #742d28;
+
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.footer{
+  background-color: #742d28;
+  max-height: 110px;
+  height: 70px;
+  flex-shrink: 0;
+
+  margin-bottom: 0;
+}
+
+p.footer{  
+  color: #f0d334;
+
+  text-align: center;
+  padding-top: 8px;
+  padding-bottom: 8px;
+}
+
+.map{
+  margin-top: 8px;
+  padding-bottom: 30px;
+}
+
+.map {
+  position: relative; /* Устанавливаем позицию для контейнера */
+  width: 100%; /* Занимает всю ширину родительского элемента */
+  padding-top: 56.25%; /* Соотношение сторон 16:9 */
+  /* Для соотношения 4:3 используйте padding-top: 75%; */
+}
+
+.map iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%; /* Занимает всю ширину */
+  height: 100%; /* Занимает всю высоту */
+  border: none; /* Убираем рамку */
+}
+
+
+
+/* Адаптация */
+
+
+
+/* Маленький экран телефона в высоту */
+
+@media (max-width: 270px) {
+
+  .title h2{
+    font-size: 22px;
+  }
+
+  .btn{
+    font-size: 13px;
+  }
+
+  .logo{
+    font-size: 14px;
+    
+    margin-right: 20px;
+  }
+
+  .wrapper{
+    text-align: center;
+    
+    align-items: center;
+  }
+}
+
+@media (max-width: 280px) {
+  .button{
+    margin-left: 20px;
+  }
+}
+
+/* Map */
+
+
+
+/* Горизонтальный */
+
+@media (min-width: 410px) {
+  .title h2 br{
+    display: none;
+  }
+}
+
+@media (min-width: 425px)  {
+  
+  .QRs{
+    display: flex;
+    justify-content: center;
+  }
+
+  .QRs{
+    justify-content: center;
+  }
+
+  .QR {
+    width: 33%;
+  }
+
+  p.footer{
+    font-size: 20px;
+  }
+  
+}
+
+@media (min-width: 450px){
+
+.arrow,.arrow2,.arrow3,.arrow4,.arrow5,.arrow6,.arrow7{
+  scale: 1.2;
+}
+.pictures{
+  margin-top: 20px;
+  margin-bottom: 15px;
+}
+}
+
+
+
+
+@media (min-width: 630px) {
+  .button{
+    margin-right: 10%;
+  }
+
+  .arrow,.arrow2,.arrow3,.arrow4,.arrow5,.arrow6,.arrow7{
+    margin-right: 17%;
+    scale: 1.33;
+  }
+
+  .title h2{
+    letter-spacing: 8px;
+  }
+  
+
+  .text_service,.text_prices_left,.text_prices_right,.text_prices_cat,.text_prices_dop{
+    margin-left: 50px;
+  }
+
+  .btn br{
+    display: none;
+  }
+
+  .btn{
+    display: flex;
+    font-size: 20px;
+    padding: 10px 15px;
+  }
+
+}
+
+
+
