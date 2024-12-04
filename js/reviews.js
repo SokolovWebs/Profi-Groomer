@@ -1,55 +1,11 @@
-// server.js
-const express = require('express');
-const mongoose = require('mongoose');
-const bodyParser = require('body-parser');
-const cors = require('cors');
-
-const app = express();
-const PORT = 3000;
-
-// Подключение к MongoDB
-mongoose.connect('https://sokolovwebs.github.io/Profi-Groomer/api/reviews', { useNewUrlParser: true, useUnifiedTopology: true });
-
-// Определение схемы для отзывов
-const reviewSchema = new mongoose.Schema({
-    author: String,
-    text: String
-});
-
-const Review = mongoose.model('Review', reviewSchema);
-
-// Middleware
-app.use(cors());
-app.use(bodyParser.json());
-
-// Эндпоинты
-app.get('/api/reviews', async (req, res) => {
-    const reviews = await Review.find();
-    res.json(reviews);
-});
-
-app.post('/api/reviews', async (req, res) => {
-    const review = new Review(req.body);
-    await review.save();
-    res.status(201).send(review);
-});
-
-// Запуск сервера
-app.listen(PORT, () => {
-    console.log(`Сервер запущен на порту ${PORT}`);
-});
-
-
-
-const correctPassword = '54321!';
-const deletePassword = 'DelAut!';
+const correctPassword = '54321!'; 
+const deletePassword = 'DelAut!'; 
 let isAuthorized = false;
 let userName = '';
 
-// Функция для загрузки отзывов с сервера
-async function loadReviews() {
-    const response = await fetch('https://sokolovwebs.github.io/Profi-Groomer/api/reviews'); // измените на ваш адрес сервера
-    const storedReviews = await response.json();
+// Функция для загрузки отзывов из localStorage
+function loadReviews() {
+    const storedReviews = JSON.parse(localStorage.getItem('reviews')) || [];
     const reviewsDiv = document.getElementById('reviews');
 
     storedReviews.forEach(({ author, text }) => {
@@ -74,8 +30,12 @@ async function loadReviews() {
             if (clickCount === clickLimit) {
                 const passwordForDeletion = prompt("Введите пароль для удаления отзыва:");
                 if (passwordForDeletion === deletePassword) {
-                    // Удаление отзыва из базы данных
-                    // Необходимо реализовать логику для удаления отзыва с сервера
+                    const index = storedReviews.findIndex(r => r.author === author && r.text === text);
+                    if (index !== -1) {
+                        storedReviews.splice(index, 1); // Удаляем отзыв из массива
+                        localStorage.setItem('reviews', JSON.stringify(storedReviews)); // Сохраняем обновленный массив в localStorage
+                        reviewsDiv.removeChild(review); // Удаляем отзыв с страницы
+                    }
                 } else {
                     alert('Неверный пароль!');
                 }
@@ -110,36 +70,26 @@ document.getElementById('authorize').addEventListener('click', function () {
 });
 
 // Добавление отзыва
-document.getElementById('addReview').addEventListener('click', async function () {
+document.getElementById('addReview').addEventListener('click', function () {
     const reviewInput = document.getElementById('reviewInput');
     const reviewsDiv = document.getElementById('reviews');
 
     if (reviewInput.value.trim() && isAuthorized) {
-        const review = {
-            author: userName,
-            text: reviewInput.value
-        };
-
-        // Сохранение отзыва на сервере
-        await fetch('https://sokolovwebs.github.io/Profi-Groomer/api/reviews', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify(review)
-        });
-
-        // Обновление интерфейса
-        const reviewDiv = document.createElement('div');
-        reviewDiv.className = 'review';
+        const review = document.createElement('div');
+        review.className = 'review';
 
         const authorDiv = document.createElement('div');
         authorDiv.className = 'author';
         authorDiv.textContent = userName;
 
-        reviewDiv.textContent = reviewInput.value;
-        reviewDiv.prepend(authorDiv);
-        reviewsDiv.appendChild(reviewDiv);
+        review.textContent = reviewInput.value;
+        review.prepend(authorDiv); // Добавить имя автора
+        reviewsDiv.appendChild(review);
+
+        // Сохранение отзыва в localStorage
+        const storedReviews = JSON.parse(localStorage.getItem('reviews')) || [];
+        storedReviews.push({ author: userName, text: reviewInput.value });
+        localStorage.setItem('reviews', JSON.stringify(storedReviews));
 
         reviewInput.value = ''; // Очистить поле ввода
     }
