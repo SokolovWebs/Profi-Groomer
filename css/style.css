@@ -1,27 +1,26 @@
 
 
-
-
  /* Стили для модального окна */
+
  .modal {
-  display: none; /* Скрыто по умолчанию */
-  position: fixed; /* Окно фиксировано по отношению к экрану */
-  z-index: 1000; /* На переднем плане */
+  display: none; 
+  position: fixed; 
+  z-index: 1000; 
   left: 0;
   top: 0;
-  width: 100%; /* Полная ширина */
-  height: 100%; /* Полная высота */
+  width: 100%; 
+  height: 100%; 
   overflow: auto; /* Если слишком много контента - прокрутка */
   background-color: rgba(0, 0, 0, 0.5); /* Полупрозрачный фон */
 }
 
 .modal-content {
   background-color: #fefefe;
-  margin: 15% auto; /* 15% сверху и центрирование по горизонтали */
+  margin: 15% auto; 
   padding: 20px;
   border: 1px solid #888;
-  width: 80%; /* Ширина окна */
-  max-width: 600px; /* Максимальная ширина окна */
+  width: 80%; 
+  max-width: 600px; 
 }
 
 .close {
@@ -50,7 +49,8 @@
 
 
 
-/* Начало WEB страницы */
+
+/* Начало WEB-страницы */
 
 *{
   margin: 0;
@@ -79,16 +79,13 @@ section{
 .wrapper {
     height: 100%;
     width: 100%;
-  }
-  
-  .wrapper{
+
     flex-grow: 1;
     display: flex;
     flex-direction: column;
     font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
     background-color: #eee;
   }
-  
   
   .header{
     display: flex;
@@ -117,7 +114,6 @@ section{
     box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
   }
   
-
 
 
 /* Кнопка */
@@ -161,7 +157,6 @@ section{
 .none, .none2, .none3, .none4, .none5, .none6, .none7{
   display: none;
 }
-
 
 
 
@@ -267,7 +262,6 @@ p{
   margin-right: 20px;
   margin-bottom: 20px;
 }
-
 
 
 
@@ -419,9 +413,7 @@ p.footer{
 .map{
   margin-top: 8px;
   padding-bottom: 30px;
-}
 
-.map {
   position: relative;
   width: 100%; 
   padding-top: 56.25%;
@@ -577,13 +569,19 @@ p.footer{
 p{
   font-size: 18px;
 }
-
 }
 
 
 
-
 @media (min-width: 630px) {
+
+  .first6 .text {
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding-left: 40px;
+    padding-right: 40px;
+  }
 
   p{
     font-size: 20px;
@@ -619,17 +617,21 @@ p{
 
 }
 
-
-@media (min-width: 769px) {
-.text_service,.text_prices_left,.text_prices_right,.text_prices_cat,.text_prices_dop{
-  margin-left: 80px;
-}
-}
-
-
 /* Адаптация для компьютерных экранов */
 
 @media (min-width: 769px) {
+
+  .text_service,.text_prices_left,.text_prices_right,.text_prices_cat,.text_prices_dop{
+    margin-left: 80px;
+  }
+  
+  .first6 .text {
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding-left: 60px;
+    padding-right: 60px;
+  }
 
   .title {
     padding-top: 10px;
@@ -713,6 +715,14 @@ p{
 .text_service,.text_prices_left,.text_prices_right,.text_prices_cat,.text_prices_dop{
   margin-left: 140px;
 }
+
+.first6 .text {
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding-left: 75px;
+  padding-right: 75px;
+}
 }
 
 @media (min-width: 1100px) {
@@ -730,5 +740,4 @@ html{
   background-color: #602824;
   background-image: url(../img/BGhtml.png);
 }
-
 }
