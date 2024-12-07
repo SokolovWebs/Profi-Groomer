@@ -27,8 +27,6 @@
  }
 
 
-
-
 // JS для увеличения картинок
 
 document.querySelectorAll('.picture').forEach(picture => {
@@ -39,7 +37,7 @@ document.querySelectorAll('.picture').forEach(picture => {
 });
 
 
-// JS для стрелочек
+// JS для стрелочек arrow
 
 // 1
     
