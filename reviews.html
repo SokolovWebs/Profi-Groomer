@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Отзывы</title>
+    <link rel="stylesheet" href="./css/reviews.css">
+</head>
+
+<body>
+    
+    <div class="container">
+        <h1>Отзывы</h1>
+
+        <div class="auth">
+            <input type="text" id="nameInput" placeholder="Введите ваше имя" />
+            <input type="password" id="passwordInput" placeholder="Введите пароль для авторизации" />
+            <button id="authorize">Авторизоваться</button>
+        </div>
+
+        <textarea id="reviewInput" placeholder="Ваш отзыв..." rows="4" disabled></textarea>
+        <button id="addReview" disabled>Добавить отзыв</button>
+
+        <div id="reviews" class="reviews-list"></div>
+    </div>
+
+    <script src="./js/reviews.js"></script>
+</body>
+
+</html>
