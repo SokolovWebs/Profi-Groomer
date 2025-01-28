@@ -1,6 +1,4 @@
-
-
- /* Стили для модального окна */
+/* Стили для модального окна */
 
  .modal {
   display: none; 
@@ -368,10 +366,8 @@ span.tg:hover{
   max-width: 400px;
 }
 .picture img{
-  max-width: 100%;
-  max-height: 100%;
-  width: auto;
-  height: auto;
+  width: 100px;
+  height: 130px;
   object-fit: contain;
   image-rendering: pixelated;
   max-width: 400px;
