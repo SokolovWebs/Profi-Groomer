@@ -28,7 +28,6 @@
 
 
 // JS для увеличения картинок
-
 // Получаем новое модальное окно
 const specialModal = document.getElementById("specialModal");
 const specialModalImage = document.getElementById("specialModalImage");
