@@ -1,4 +1,6 @@
-/* Стили для модального окна */
+
+
+ /* Стили для модального окна */
 
  .modal {
   display: none; 
@@ -147,16 +149,9 @@ section{
 
 /* Стили для JS */
 
-.scale{
-  scale: 1.5;
-  transition: 1s;
-}
-
 .none, .none2, .none3, .none4, .none5, .none6, .none7{
   display: none;
 }
-
-
 
 /* Универсальные классы, задающиеся для многих элементов */
 
